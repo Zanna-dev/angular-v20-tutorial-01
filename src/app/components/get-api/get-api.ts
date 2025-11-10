@@ -10,7 +10,6 @@ import { Component, inject, OnInit } from '@angular/core';
 export class GetApi implements OnInit {
 
   http = inject(HttpClient);
-
   userList: any[] = [];
   todoList: any[] = [];
   busUserList: any[] = [];
@@ -18,6 +17,8 @@ export class GetApi implements OnInit {
   ngOnInit(): void {
     debugger;
     this.getUsers();
+    this.getTodoItems();
+    this.getAllBusBookingUsers();
   }
 
 

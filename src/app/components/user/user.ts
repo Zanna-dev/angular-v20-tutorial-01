@@ -54,4 +54,48 @@ export class User implements OnInit {
     )
   }
 
+  onResetUser() {
+    this.userObj = {
+      "userId": 0,
+      "emailId": "",
+      "password": "",
+      "fullName": "",
+      "mobileNo": ""
+    }
+
+  }
+
+  onUpdateUser() {
+    this.http.put("https://api.freeprojectapi.com/api/GoalTracker/updateUser?id=" + this.userObj.userId, this.userObj).subscribe({
+      next: () => {
+        alert("User Updated Successfully");
+        this.getUsers();
+      },
+      error: () => {
+        alert("Error Occured");
+      }
+    })
+  }
+
+  onDeleteUser(id: any) {
+    const isDeleted = confirm("Are you sure you want to delete this user?");
+    if (isDeleted) {
+      this.http.delete("https://api.freeprojectapi.com/api/GoalTracker/deleteUser?id=" + id).subscribe({
+        next: () => {
+          alert("User Deleted Successfully");
+          this.getUsers();
+        },
+        error: (error) => {
+          alert("Error Occured" + error.error);
+        }
+      })
+    }
+
+
+  }
+
+  onEdit(item: any) {
+    this.userObj = item;
+  }
+
 }
