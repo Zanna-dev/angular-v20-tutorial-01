@@ -1,0 +1,78 @@
+<!-- <h1>Welcome</h1>
+
+<table style="width: 100%;">
+    <tr>
+        <td>
+            <app-admin></app-admin>
+        </td>
+        <td>
+         <app-user></app-user>
+        </td>
+        <td>
+            <app-data-binding></app-data-binding>
+        </td>
+    </tr>
+</table>
+
+<app-data-binding></app-data-binding>
+<app-signal-ex> </app-signal-ex>
+<app-control-flow></app-control-flow> -->
+
+
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="admin" routerLinkActive="active">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="control-flow-statement">Control-Flow</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="databinding">Data Binding</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="signal">Signal</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link active" routerLink="attDirectives">Attribute Directives</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="getApi">Get API</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="user">User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="reactive-user">Reactive User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="pipe-ex">Pipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="resource-api">Resource API</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a class="nav-link active" routerLink="login">Login</a>
+                </li> -->
+            </ul>
+            <form class="d-flex">
+                @if (loggedUserName == '') {
+                <button class="btn btn-primary" routerLink="login" type="button">Login</button>
+                } @else {
+                <button class="btn btn-warning" type="button">{{loggedUserName}}</button>
+                <button class="btn btn-primary" (click)="onLogOff()" type="button">LogOff</button>
+                }
+            </form>
+        </div>
+
+    </div>
+</nav>
+<router-outlet />
