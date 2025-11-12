@@ -10,33 +10,34 @@ import { Router } from '@angular/router';
   styleUrl: './login-comp.css',
 })
 export class LoginComp {
-   
-    loginForm: FormGroup = new FormGroup({
-        EmailId: new FormControl(""),
-        Password: new FormControl("")
-    });
 
-    http = inject(HttpClient);
-    router = inject(Router)
+  loginForm: FormGroup = new FormGroup({
+    EmailId: new FormControl(""),
+    Password: new FormControl("")
+  });
 
-    onLogin(){
-      debugger;
-      const formValue = this.loginForm.value;
-      this.http.post("https://freeapi.miniprojectideas.com/api/User/Login", formValue).subscribe({
-        next:(response:any) => {
-          debugger;
-          if(response.result){
-            alert("Login Successful");
-            this.router.navigateByUrl("/dashboard")
-          }else{
-            alert(response.message);
-          }
-        },
-        error:(error) => {
-          debugger;
-          alert(error.statusText)
+  http = inject(HttpClient);
+  router = inject(Router)
+
+  onLogin() {
+    debugger;
+    const formValue = this.loginForm.value;
+    this.http.post("https://freeapi.miniprojectideas.com/api/User/Login", formValue).subscribe({
+      next: (response: any) => {
+        debugger;
+        if (response.result) {
+          alert("Login Successful");
+          localStorage.setItem('angular-user', response.data.token);
+          this.router.navigateByUrl("/dashboard")
+        } else {
+          alert(response.message);
         }
-      })
-    }
+      },
+      error: (error) => {
+        debugger;
+        alert(error.statusText)
+      }
+    })
+  }
 
 }

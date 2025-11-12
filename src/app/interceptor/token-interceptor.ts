@@ -1,0 +1,13 @@
+import { HttpInterceptorFn } from '@angular/common/http';
+
+export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
+  debugger;
+  const token = localStorage.getItem('angular20Token');
+  const newReq = req.clone({
+    setHeaders: {
+      Authorization: `Bearer ${token}`
+    }
+    // headers: req.headers.set('Authorization', `Bearer ${token}`)
+  });
+  return next(newReq);
+};
