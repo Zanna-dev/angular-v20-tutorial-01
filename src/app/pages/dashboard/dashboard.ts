@@ -19,10 +19,8 @@ export class Dashboard {
     debugger;
     this.http.get("https://freeapi.miniprojectideas.com/api/User/GetAllUsers").subscribe({
       next: (response) => {
-        debugger;
       },
       error: (error) => {
-        debugger;
       }
     })
   }

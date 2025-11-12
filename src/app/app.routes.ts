@@ -14,6 +14,7 @@ import { Layout } from './components/layout/layout';
 import { LoginComp } from './pages/login-comp/login-comp';
 import { LayoutComp } from './pages/layout-comp/layout-comp';
 import { Dashboard } from './pages/dashboard/dashboard';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
     // {
@@ -33,10 +34,12 @@ export const routes: Routes = [
     {
         path: '',
         component: LayoutComp,
+        canActivate: [authGuard],
         children: [
             {
                 path: 'dashboard',
-                component: Dashboard
+                component: Dashboard,
+                // canDeactivate: [authGuard]
             }
         ]
     },
